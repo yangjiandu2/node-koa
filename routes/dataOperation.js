@@ -5,6 +5,17 @@ const router = require('koa-router')()
 const { query } = require('../mysql/pool');
 const { QUERY_SQL, INSERT_SQL, UPDATE_SQL, DELETE_SQL } = require('../mysql/mysql');
 
+router.get('/', async (ctx) => {
+  let html = `
+        <ul>
+            <li><a href="/page/helloworld">/page/helloworld</a></li>
+            <li><a href="/page/404">/page/404</a></li>
+        </ul>
+    `
+  ctx.body = html
+})
+
+
 //查询
 // 测试时可简单创建 string: name, number: id, 自增主键id
 router.get('/search', async ctx => {
